@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meheraj Romiz | Digital Marketing Provider</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:#1a56db; --blue-dark:#1040a8; --blue-light:#3b82f6;
+    --orange:#e85d04; --green:#16a34a; --white:#fff;
+    --gray-50:#f8fafc; --gray-100:#f1f5f9; --gray-200:#e2e8f0;
+    --gray-700:#334155; --gray-900:#0f172a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Poppins',sans-serif; background:var(--gray-50); color:var(--gray-900); overflow-x:hidden; }
+
+  /* HERO */
+  .hero {
+    background:linear-gradient(135deg,#1040a8 0%,#1a56db 45%,#2563eb 70%,#1d4ed8 100%);
+    padding:60px 20px 70px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    animation:bgShift 20s linear infinite;
+  }
+  @keyframes bgShift { from{background-position:0 0} to{background-position:60px 60px} }
+  .hero-content { position:relative; z-index:1; max-width:700px; margin:0 auto; }
+  .hero h1 {
+    font-family:'Playfair Display',serif; font-size:clamp(2.4rem,6vw,3.8rem);
+    color:#fff; font-weight:900; letter-spacing:-1px;
+    text-shadow:0 2px 20px rgba(0,0,0,.3); animation:fadeDown .8s ease both;
+  }
+  .hero .subtitle { font-size:clamp(1rem,2.5vw,1.3rem); color:rgba(255,255,255,.92); font-weight:500; margin:10px 0 8px; animation:fadeDown .8s .15s ease both; }
+  .hero .tagline { font-size:clamp(.85rem,2vw,1rem); color:rgba(255,255,255,.78); font-weight:300; letter-spacing:.5px; animation:fadeDown .8s .3s ease both; }
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:none} }
+
+  /* CTA */
+  .cta-row { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px; animation:fadeUp .8s .5s ease both; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+  .btn {
+    display:inline-flex; align-items:center; gap:9px; padding:14px 30px;
+    border-radius:50px; font-family:'Poppins',sans-serif; font-weight:600; font-size:.95rem;
+    text-decoration:none; cursor:pointer; transition:transform .2s,box-shadow .2s; border:none;
+  }
+  .btn:hover { transform:translateY(-3px); }
+  .btn-wa { background:linear-gradient(135deg,#25d366,#128c7e); color:#fff; box-shadow:0 6px 24px rgba(37,211,102,.4); }
+  .btn-wa:hover { box-shadow:0 10px 32px rgba(37,211,102,.55); }
+  .btn-email { background:linear-gradient(135deg,#e85d04,#f97316); color:#fff; box-shadow:0 6px 24px rgba(232,93,4,.4); }
+  .btn-email:hover { box-shadow:0 10px 32px rgba(232,93,4,.55); }
+  .btn svg { width:18px;height:18px;fill:currentColor;flex-shrink:0; }
+
+  /* SKILLS CARD */
+  .skills-section {
+    background:#fff; border-radius:24px; padding:50px 30px;
+    box-shadow:0 4px 30px rgba(0,0,0,.07); margin:30px auto 10px;
+    max-width:960px; padding-left:30px; padding-right:30px;
+  }
+  .skills-wrap { max-width:960px; margin:0 auto; padding:0 20px; }
+  .section-title {
+    text-align:center; font-size:clamp(1.5rem,4vw,2.2rem); font-weight:800;
+    color:var(--blue-dark); margin-bottom:40px; position:relative;
+  }
+  .section-title::after {
+    content:''; display:block; width:60px; height:4px;
+    background:linear-gradient(90deg,var(--blue),var(--orange));
+    border-radius:2px; margin:10px auto 0;
+  }
+  .skill-category { margin-bottom:32px; }
+  .skill-category:last-child { margin-bottom:0; }
+  .cat-label {
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.78rem; font-weight:700; letter-spacing:1.2px; text-transform:uppercase;
+    color:var(--blue); background:rgba(26,86,219,.08); padding:5px 14px; border-radius:20px; margin-bottom:14px;
+  }
+  .cat-label .dot { width:7px;height:7px;border-radius:50%;background:var(--blue); }
+  .tags { display:flex; flex-wrap:wrap; gap:10px; }
+  .tag {
+    display:inline-block; padding:9px 18px; border-radius:50px;
+    font-size:.85rem; font-weight:500; text-decoration:none;
+    transition:transform .18s,box-shadow .18s; border:1.5px solid transparent;
+    cursor:pointer;
+  }
+  .tag:hover { transform:translateY(-2px) scale(1.04); box-shadow:0 6px 18px rgba(0,0,0,.13); }
+  .tag-blue   { background:#eff6ff; color:#1e40af; border-color:#bfdbfe; }
+  .tag-green  { background:#f0fdf4; color:#166534; border-color:#bbf7d0; }
+  .tag-orange { background:#fff7ed; color:#9a3412; border-color:#fed7aa; }
+  .tag-purple { background:#faf5ff; color:#6b21a8; border-color:#e9d5ff; }
+  .tag-teal   { background:#f0fdfa; color:#134e4a; border-color:#99f6e4; }
+  .tag-rose   { background:#fff1f2; color:#9f1239; border-color:#fecdd3; }
+  .tag-yellow { background:#fefce8; color:#713f12; border-color:#fef08a; }
+
+  /* CURRICULUM */
+  .curriculum { padding:20px 20px 60px; max-width:1000px; margin:0 auto; }
+  .modules-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
+  .module-card {
+    background:#fff; border-radius:18px; padding:24px;
+    box-shadow:0 2px 20px rgba(0,0,0,.07); border-left:4px solid var(--blue);
+    transition:transform .2s,box-shadow .2s; animation:fadeUp .6s ease both;
+  }
+  .module-card:hover { transform:translateY(-4px); box-shadow:0 8px 32px rgba(0,0,0,.12); }
+  .module-num { font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:6px; }
+  .module-title { font-size:1.05rem;font-weight:700;color:var(--gray-900);margin-bottom:12px; }
+  .module-items { list-style:none; }
+  .module-items li { font-size:.82rem;color:var(--gray-700);padding:3px 0;display:flex;align-items:flex-start;gap:7px; }
+  .module-items li::before { content:'▸';color:var(--blue-light);flex-shrink:0; }
+  .mc-1{border-color:#3b82f6}.mc-2{border-color:#8b5cf6}.mc-3{border-color:#10b981}
+  .mc-4{border-color:#f59e0b}.mc-5{border-color:#ef4444}.mc-6{border-color:#06b6d4}
+  .mc-7{border-color:#ec4899}.mc-8{border-color:#84cc16}.mc-9{border-color:#f97316}
+
+  /* FOOTER */
+  footer { background:var(--gray-900); color:rgba(255,255,255,.7); text-align:center; padding:30px 20px; font-size:.85rem; }
+  footer a { color:#60a5fa; text-decoration:none; }
+  footer a:hover { text-decoration:underline; }
+
+  @media(max-width:600px) {
+    .skills-section { padding:30px 18px; }
+    .module-card { padding:18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>Meheraj Romiz</h1>
+    <p class="subtitle">Digital Marketing Provider</p>
+    <p class="tagline">Expert in Paid Ads, SEO &amp; Lead Generation &nbsp;|&nbsp; Trained 600+ Hours</p>
+    <div class="cta-row">
+      <a href="https://wa.me/8801866039814" target="_blank" class="btn btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Hire Me on WhatsApp
+      </a>
+      <a href="mailto:meherajromiz2@gmail.com" class="btn btn-email">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Email Me
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- SKILLS SECTION TITLE -->
+<div class="skills-wrap" style="margin-top:40px;">
+  <h2 class="section-title">My Digital Marketing Skills &amp; Tools</h2>
+</div>
+
+<div class="skills-section" style="margin-left:auto;margin-right:auto;">
+
+  <div class="skill-category">
+    <div class="cat-label"><span class="dot"></span>Social Media</div>
+    <div class="tags">
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/facebook-ads?authuser=0" target="_blank" class="tag tag-blue">Facebook Ads</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/google-ads?authuser=0" target="_blank" class="tag tag-blue">Google Ads</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/instagram-marketing?authuser=0" target="_blank" class="tag tag-purple">Instagram Marketing</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/youtube-seo?authuser=0" target="_blank" class="tag tag-rose">YouTube SEO</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/meta-ads-manager?authuser=0" target="_blank" class="tag tag-blue">Meta Ads Manager</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/linkedin-marketing?authuser=0" target="_blank" class="tag tag-teal">LinkedIn Marketing</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/pinterest-marketing?authuser=0" target="_blank" class="tag tag-orange">Pinterest Marketing</a>
+    </div>
+  </div>
+
+  <div class="skill-category">
+    <div class="cat-label"><span class="dot" style="background:#10b981"></span><span style="color:#166534">SEO</span></div>
+    <div class="tags">
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/seo-on-page-off-page-technical?authuser=0" target="_blank" class="tag tag-green">SEO (On-Page + Technical)</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/local-seo?authuser=0" target="_blank" class="tag tag-green">Local SEO</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/google-analytics?authuser=0" target="_blank" class="tag tag-green">Google Analytics</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/competitor-analysis?authuser=0" target="_blank" class="tag tag-teal">Competitor Analysis</a>
+    </div>
+  </div>
+
+  <div class="skill-category">
+    <div class="cat-label"><span class="dot" style="background:#f59e0b"></span><span style="color:#92400e">Lead, Email & Funnel</span></div>
+    <div class="tags">
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/lead-generation?authuser=0" target="_blank" class="tag tag-orange">Lead Generation</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/email-marketing?authuser=0" target="_blank" class="tag tag-yellow">Email Marketing</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/funnel-strategy?authuser=0" target="_blank" class="tag tag-orange">Funnel Strategy</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/pixel-setup-tracking?authuser=0" target="_blank" class="tag tag-yellow">Pixel Setup &amp; Tracking</a>
+      <a href="https://sites.google.com/view/romiz-design-marketing-grow/services/content-marketing?authuser=0" target="_blank" class="tag tag-orange">Content Marketing</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- CURRICULUM -->
+<div class="curriculum">
+  <h2 class="section-title">Complete Training Curriculum</h2>
+  <div class="modules-grid">
+
+    <div class="module-card mc-1" style="animation-delay:.05s">
+      <div class="module-num">Module 01</div>
+      <div class="module-title">Digital Marketing Foundations</div>
+      <ul class="module-items">
+        <li>Core concepts &amp; industry trends</li>
+        <li>Traditional vs Digital marketing</li>
+        <li>Niche selection techniques</li>
+        <li>Profitable niche discovery methods</li>
+      </ul>
+    </div>
+
+    <div class="module-card mc-2" style="animation-delay:.1s">
+      <div class="module-num">Module 02</div>
+      <div class="module-title">Social Media Marketing (SMM)</div>
+      <ul class="module-items">
+        <li>Facebook, Instagram, X, Pinterest</li>
+        <li>LinkedIn B2B &amp; Sales Navigator</li>
+        <li>Meta Ads Manager &amp; Pixel</li>
+        <li>Lookalike &amp; Custom Audiences</li>
+        <li>Quora &amp; Reddit Marketing</li>
+      </ul>
+    </div>
+
+    <div class="module-card mc-3" style="animation-delay:.15s">
+      <div class="module-num">Module 03</div>
+      <div class="module-title">Lead Generation &amp; Data Entry</div>
+      <ul class="module-items">
+        <li>B2B &amp; B2C lead pipelines</li>
+        <li>Data scraping (Maps, Yelp, YP)</li>
+        <li>Lead nurturing workflows</li>
+      </ul>
+    </div>
+
+    <div class="module-card mc-4" style="animation-delay:.2s">
+      <div class="module-num">Module 04</div>
+      <div class="module-title">Email Marketing</div>
+      <ul class="module-items">
+        <li>Mailchimp, Klaviyo &amp; Brevo</li>
+        <li>HTML template design</li>
+        <li>List building &amp; segmentation</li>
+        <li>Open rates, CTR &amp; ROI tracking</li>
+      </ul>
+    </div>
+
+    <div class="module-card mc-5" style="animation-delay:.25s">
+      <div class="module-num">Module 05</div>
+      <div class="module-title">Search Engine Optimization (SEO)</div>
+      <ul class="module-items">
+        <li>On-Page, Off-Page &amp; Technical SEO</li>
+        <li>Keyword research (Ahrefs, SEMrush)</li>
+        <li>Link building &amp; backlinks</li>
+        <li>Google Search Console &amp; GA4</li>
+        <li>Local SEO &amp; Google Business Profile</li>
+      </ul>
+    </div>
+
+    <div class="module-card mc-6" style="animation-delay:.3s">
+      <div class="module-num">Module 06</div>
+      <div class="module-title">Search Engine Marketing (SEM)</div>
+      <ul class="module-items">
+        <li>Google Ads &amp; campaign setup</li>
+        <li>Search, Display &amp; Video Ads</li>
+        <li>Quality Score optimization</li>
+        <li>Bid strategies &amp; ROI tracking</li>
+      </ul>
+    </div>
+
+    <div class="module-card mc-7" style="animation-delay:.35s">
+      <div class="module-num">Module 07</div>
+      <div class="module-title">Video Marketing &amp; YouTube SEO</div>
+      <ul class="module-items">
+        <li>Channel branding &amp; optimization</li>
+        <li>Video SEO metadata strategies</li>
+        <li>VidIQ &amp; TubeBuddy tools</li>
+        <li>YouTube Shorts growth</li>
+      </ul>
+    </div>
+
+    <div class="module-card mc-8" style="animation-delay:.4s">
+      <div class="module-num">Module 08</div>
+      <div class="module-title">Blogging &amp; Affiliate Marketing</div>
+      <ul class="module-items">
+        <li>Content strategy &amp; SEO blogging</li>
+        <li>Google AdSense &amp; Ezoic</li>
+        <li>Affiliate network onboarding</li>
+        <li>Product listing &amp; reviews</li>
+      </ul>
+    </div>
+
+    <div class="module-card mc-9" style="animation-delay:.45s">
+      <div class="module-num">Module 09</div>
+      <div class="module-title">AI in Digital Marketing</div>
+      <ul class="module-items">
+        <li>ChatGPT, Gemini prompt engineering</li>
+        <li>AI graphic design (Canva, Firefly)</li>
+        <li>AI video &amp; voiceover (Sora, Murf)</li>
+        <li>Automated ad campaigns (AdCreative)</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:8px;font-weight:600;color:#fff;font-size:1rem;">Meheraj Romiz — Digital Marketing Provider</p>
+  <p>
+    <a href="https://wa.me/8801866039814" target="_blank">📱 WhatsApp: +880 1866-039814</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="mailto:meherajromiz2@gmail.com">✉️ meherajromiz2@gmail.com</a>
+  </p>
+  <p style="margin-top:10px;font-size:.75rem;opacity:.5;">© 2026 Meheraj Romiz. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
